@@ -1,19 +1,15 @@
+import 'package:aamar_task/core/constants/values.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 final Dio dio = Dio();
 
-String? token;
-String? deviceId;
-String? phoneNumber;
-String? userId;
-
 Dio setupDio() {
   dio
     ..options.connectTimeout = const Duration(seconds: 10)
-    ..options.receiveTimeout = const Duration(seconds: 10);
-  //..options.baseUrl = AppConstants.baseUrl
+    ..options.receiveTimeout = const Duration(seconds: 10)
+    ..options.baseUrl = AppConstants.baseUrl;
 
   // ));
 

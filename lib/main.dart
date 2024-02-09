@@ -21,5 +21,4 @@ Future<void> main() async {
     Bloc.observer = AppObserver();
     runApp(MyApp());
   });
-  
 }
