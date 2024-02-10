@@ -1,41 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_offline/flutter_offline.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
-import 'no_internet.dart';
-
-class InternetConnectionChecker extends StatefulWidget {
-  final Widget? child;
-
-  const InternetConnectionChecker({super.key, this.child});
-
-  @override
-  State<InternetConnectionChecker> createState() =>
-      _InternetConnectionCheckerState();
+abstract class NetworkInfo {
+  Future<bool> get isConnected;
 }
 
-class _InternetConnectionCheckerState extends State<InternetConnectionChecker> {
-  @override
-  void initState() {
-    super.initState();
-  }
+class NetworkInfoImpl implements NetworkInfo {
+  final InternetConnectionChecker connectionChecker;
 
+  NetworkInfoImpl(this.connectionChecker);
   @override
-  Widget build(BuildContext context) {
-    return OfflineBuilder(
-      connectivityBuilder: (
-        BuildContext context,
-        ConnectivityResult connectivity,
-        Widget child,
-      ) {
-        if (connectivity == ConnectivityResult.none) {
-          return const NoInternet();
-        } else {
-          return child;
-        }
-      },
-      builder: (BuildContext context) {
-        return widget.child!;
-      },
-    );
-  }
+  Future<bool> get isConnected => connectionChecker.hasConnection;
 }

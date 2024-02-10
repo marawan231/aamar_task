@@ -1,6 +1,7 @@
 
 enum NamedRoutes {
-  splash('/'),
+  posts('/'),
+  postDetails('/postDetails'),
 
   ;
 

@@ -1,7 +1,6 @@
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:aamar_task/core/network_service/generic_error_model.dart';
 import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -11,14 +10,13 @@ part 'network_exceptions.freezed.dart';
 class DioExceptionType with _$DioExceptionType {
   const factory DioExceptionType.requestCancelled() = RequestCancelled;
 
-  const factory DioExceptionType.unauthorizedRequest(String reason) =
-      UnauthorizedRequest;
+  const factory DioExceptionType.unauthorizedRequest() = UnauthorizedRequest;
 
-  const factory DioExceptionType.badRequest(String error) = BadRequest;
+  const factory DioExceptionType.badRequest() = BadRequest;
 
-  const factory DioExceptionType.badResponse(String error) = BadResponse;
+  const factory DioExceptionType.badResponse() = BadResponse;
 
-  const factory DioExceptionType.notFound(String reason) = NotFound;
+  const factory DioExceptionType.notFound() = NotFound;
 
   const factory DioExceptionType.methodNotAllowed() = MethodNotAllowed;
 
@@ -28,10 +26,9 @@ class DioExceptionType with _$DioExceptionType {
 
   const factory DioExceptionType.sendTimeout() = SendTimeout;
 
-  const factory DioExceptionType.unprocessableEntity(String reason) =
-      UnprocessableEntity;
+  const factory DioExceptionType.unprocessableEntity() = UnprocessableEntity;
 
-  const factory DioExceptionType.conflict(String error) = Conflict;
+  const factory DioExceptionType.conflict() = Conflict;
 
   const factory DioExceptionType.internalServerError() = InternalServerError;
 
@@ -45,48 +42,43 @@ class DioExceptionType with _$DioExceptionType {
 
   const factory DioExceptionType.unableToProcess() = UnableToProcess;
 
-  const factory DioExceptionType.defaultError(String error) = DefaultError;
+  const factory DioExceptionType.defaultError() = DefaultError;
 
   static DioExceptionType handleResponse(Response? response) {
-    GenericErrorModel errorModel = GenericErrorModel.fromJson(response?.data);
+    log("handleResponse" + response.toString());
+    // GenericErrorModel errorModel = GenericErrorModel.fromJson(response?.data);
 
     int statusCode = response?.statusCode ?? 0;
-    String error = "";
-    error = errorModel.errors == null
-        ? errorModel.message!
-        : errorModel.errors!.isEmpty
-            ? errorModel.message!
-            : errorModel.errors!.first;
 
     switch (statusCode) {
       case 400:
         log('400');
-        return DioExceptionType.badRequest(error);
+        return DioExceptionType.badRequest();
       case 401:
-        return DioExceptionType.unauthorizedRequest(error);
+        return DioExceptionType.unauthorizedRequest();
       case 403:
         log('403');
 
-        return DioExceptionType.unauthorizedRequest(error);
+        return DioExceptionType.unauthorizedRequest();
       case 404:
         log('404');
-        log(response.toString());
-        log(response?.data['message']);
+        // log(response.toString());
+        // log(response?.data['message']);
 
         // log("errorModel.errors?.first.message ${errorModel.errors?.first.message.toString()}");
-        return DioExceptionType.notFound(error);
+        return DioExceptionType.notFound();
 
       case 409:
         log('409');
 
-        return DioExceptionType.conflict(error);
+        return DioExceptionType.conflict();
       case 408:
         log('408');
 
         return const DioExceptionType.requestTimeout();
       case 422:
         log('422');
-        return DioExceptionType.unprocessableEntity(error);
+        return DioExceptionType.unprocessableEntity();
       case 500:
         log('500');
         return const DioExceptionType.internalServerError();
@@ -94,70 +86,55 @@ class DioExceptionType with _$DioExceptionType {
         log('503');
         return const DioExceptionType.serviceUnavailable();
       default:
-        log('default');
-        log("errorModel.errors?.first.message ${errorModel.message}");
-        log("errorModel.errors?.first.message ${errorModel.errors?.first}");
-        var responseCode = statusCode;
-        return DioExceptionType.defaultError(
-          "$responseCode",
-        );
+        // var responseCode = statusCode;
+        return DioExceptionType.defaultError();
     }
   }
 
   static DioExceptionType getDioException(error, [stackTrace]) {
-    log("error $error $stackTrace");
-
     if (error is Exception) {
       try {
         if (error is DioException) {
-          log("error ${error.type.name}");
-          switch (error.type) {
-            case DioExceptionType.requestCancelled:
-              return const DioExceptionType.requestCancelled();
+          log('getDioException' + error.type.name.toString());
 
-            case DioExceptionType.requestTimeout:
+          switch (error.type.name) {
+            case "badResponse":
+              return DioExceptionType.handleResponse(error.response);
+            case "sendTimeout":
+              return const DioExceptionType.sendTimeout();
+            case "requestTimeout":
               return const DioExceptionType.requestTimeout();
-
-            case DioExceptionType.noInternetConnection:
-              // log("message ${error.message} ${error.response?.data} $stackTrace");
+            case "notFound":
+              return DioExceptionType.notFound();
+            case "unauthorized":
+              return DioExceptionType.unauthorizedRequest();
+            //connection error
+            case "connectionError":
               return const DioExceptionType.noInternetConnection();
 
-            case DioExceptionType.sendTimeout:
-              return const DioExceptionType.sendTimeout();
+            case "unhandled":
+              return DioExceptionType.defaultError();
 
-            case DioExceptionType.badResponse:
-              log('12312312312312312312312312');
-              return DioExceptionType.handleResponse(error.response);
-
-            // case DioExceptionType.sendTimeout:
-            //   return const DioExceptionType.sendTimeout();
+            //connection error
+            case "connectionTimeout":
+              return const DioExceptionType.noInternetConnection();
 
             default:
-              return const DioExceptionType.unableToProcess();
+              return DioExceptionType.defaultError();
           }
-        } else if (error is SocketException) {
-          // log("error $error $stackTrace");
-
-          return const DioExceptionType.noInternetConnection();
-        } else {
-          return const DioExceptionType.unableToProcess();
         }
-
-        // ignore: unused_catch_clause
-      } on FormatException catch (e) {
-        return const DioExceptionType.formatException();
-      } catch (_) {
-        // log("error $error $stackTrace");
-        return const DioExceptionType.unableToProcess();
+      } catch (e) {
+        log('catch');
+        return DioExceptionType.defaultError();
       }
+    } else if (error is SocketException) {
+      log('socket');
+      return const DioExceptionType.noInternetConnection();
     } else {
-      // log("error $error $stackTrace");
-      if (error.toString().contains("is not a subtype of")) {
-        return const DioExceptionType.unableToProcess();
-      } else {
-        return const DioExceptionType.unableToProcess();
-      }
+      log('else');
+      return DioExceptionType.defaultError();
     }
+    return DioExceptionType.defaultError();
   }
 
   static String getErrorMessage(DioExceptionType networkExceptions) {
@@ -165,25 +142,25 @@ class DioExceptionType with _$DioExceptionType {
       notImplemented: () => "Not Implemented",
       requestCancelled: () => "Request Cancelled",
       internalServerError: () => "Internal Server Error",
-      notFound: (String reason) => reason,
+      notFound: () => "Not Found",
       serviceUnavailable: () => "Service unavailable",
       methodNotAllowed: () => "Method Allowed",
-      badRequest: (String error) => error,
+      badRequest: () => "Bad Request",
 
-      badResponse: (String error) => error,
-      unauthorizedRequest: (String error) => error,
-      unprocessableEntity: (String error) => error,
+      badResponse: () => "Bad Response",
+      unauthorizedRequest: () => "Unauthorized Request",
+      unprocessableEntity: () => "Unprocessable Entity",
       // unknown: () => "Unexpected error occurred",
       requestTimeout: () => "Connection request timeout",
       sendTimeout: () => "Connection send timeout",
       notAcceptable: () => "Not Acceptable",
-      conflict: (String error) => error,
+      conflict: () => "Conflict",
       noInternetConnection: () => "No Internet Connection",
       formatException: () => "Format Exception",
       // unableToProcess: () => "Unable to process the data",
 
-      unableToProcess: () => "Something went whrong",
-      defaultError: (String error) => error,
+      unableToProcess: () => "Something went wrong",
+      defaultError: () => "Something went wrong",
     );
   }
 }

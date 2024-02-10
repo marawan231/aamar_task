@@ -22,6 +22,10 @@ mixin _$PostsState {
     required TResult Function() loading,
     required TResult Function(List<Post> posts) loaded,
     required TResult Function(String message) error,
+    required TResult Function() searching,
+    required TResult Function(List<Post> posts) searched,
+    required TResult Function() favouriteLoading,
+    required TResult Function(List<Post> posts) favourite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +34,10 @@ mixin _$PostsState {
     TResult? Function()? loading,
     TResult? Function(List<Post> posts)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function()? searching,
+    TResult? Function(List<Post> posts)? searched,
+    TResult? Function()? favouriteLoading,
+    TResult? Function(List<Post> posts)? favourite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +46,10 @@ mixin _$PostsState {
     TResult Function()? loading,
     TResult Function(List<Post> posts)? loaded,
     TResult Function(String message)? error,
+    TResult Function()? searching,
+    TResult Function(List<Post> posts)? searched,
+    TResult Function()? favouriteLoading,
+    TResult Function(List<Post> posts)? favourite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +59,10 @@ mixin _$PostsState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Searching value) searching,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_FavouriteLoading value) favouriteLoading,
+    required TResult Function(_Favourite value) favourite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +71,10 @@ mixin _$PostsState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Searching value)? searching,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_FavouriteLoading value)? favouriteLoading,
+    TResult? Function(_Favourite value)? favourite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +83,10 @@ mixin _$PostsState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Searching value)? searching,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_FavouriteLoading value)? favouriteLoading,
+    TResult Function(_Favourite value)? favourite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +152,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function(List<Post> posts) loaded,
     required TResult Function(String message) error,
+    required TResult Function() searching,
+    required TResult Function(List<Post> posts) searched,
+    required TResult Function() favouriteLoading,
+    required TResult Function(List<Post> posts) favourite,
   }) {
     return initial();
   }
@@ -139,6 +167,10 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(List<Post> posts)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function()? searching,
+    TResult? Function(List<Post> posts)? searched,
+    TResult? Function()? favouriteLoading,
+    TResult? Function(List<Post> posts)? favourite,
   }) {
     return initial?.call();
   }
@@ -150,6 +182,10 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function(List<Post> posts)? loaded,
     TResult Function(String message)? error,
+    TResult Function()? searching,
+    TResult Function(List<Post> posts)? searched,
+    TResult Function()? favouriteLoading,
+    TResult Function(List<Post> posts)? favourite,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -165,6 +201,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Searching value) searching,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_FavouriteLoading value) favouriteLoading,
+    required TResult Function(_Favourite value) favourite,
   }) {
     return initial(this);
   }
@@ -176,6 +216,10 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Searching value)? searching,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_FavouriteLoading value)? favouriteLoading,
+    TResult? Function(_Favourite value)? favourite,
   }) {
     return initial?.call(this);
   }
@@ -187,6 +231,10 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Searching value)? searching,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_FavouriteLoading value)? favouriteLoading,
+    TResult Function(_Favourite value)? favourite,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -242,6 +290,10 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loading,
     required TResult Function(List<Post> posts) loaded,
     required TResult Function(String message) error,
+    required TResult Function() searching,
+    required TResult Function(List<Post> posts) searched,
+    required TResult Function() favouriteLoading,
+    required TResult Function(List<Post> posts) favourite,
   }) {
     return loading();
   }
@@ -253,6 +305,10 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? loading,
     TResult? Function(List<Post> posts)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function()? searching,
+    TResult? Function(List<Post> posts)? searched,
+    TResult? Function()? favouriteLoading,
+    TResult? Function(List<Post> posts)? favourite,
   }) {
     return loading?.call();
   }
@@ -264,6 +320,10 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? loading,
     TResult Function(List<Post> posts)? loaded,
     TResult Function(String message)? error,
+    TResult Function()? searching,
+    TResult Function(List<Post> posts)? searched,
+    TResult Function()? favouriteLoading,
+    TResult Function(List<Post> posts)? favourite,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -279,6 +339,10 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Searching value) searching,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_FavouriteLoading value) favouriteLoading,
+    required TResult Function(_Favourite value) favourite,
   }) {
     return loading(this);
   }
@@ -290,6 +354,10 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Searching value)? searching,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_FavouriteLoading value)? favouriteLoading,
+    TResult? Function(_Favourite value)? favourite,
   }) {
     return loading?.call(this);
   }
@@ -301,6 +369,10 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Searching value)? searching,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_FavouriteLoading value)? favouriteLoading,
+    TResult Function(_Favourite value)? favourite,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -388,6 +460,10 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function() loading,
     required TResult Function(List<Post> posts) loaded,
     required TResult Function(String message) error,
+    required TResult Function() searching,
+    required TResult Function(List<Post> posts) searched,
+    required TResult Function() favouriteLoading,
+    required TResult Function(List<Post> posts) favourite,
   }) {
     return loaded(posts);
   }
@@ -399,6 +475,10 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function()? loading,
     TResult? Function(List<Post> posts)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function()? searching,
+    TResult? Function(List<Post> posts)? searched,
+    TResult? Function()? favouriteLoading,
+    TResult? Function(List<Post> posts)? favourite,
   }) {
     return loaded?.call(posts);
   }
@@ -410,6 +490,10 @@ class _$LoadedImpl implements _Loaded {
     TResult Function()? loading,
     TResult Function(List<Post> posts)? loaded,
     TResult Function(String message)? error,
+    TResult Function()? searching,
+    TResult Function(List<Post> posts)? searched,
+    TResult Function()? favouriteLoading,
+    TResult Function(List<Post> posts)? favourite,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -425,6 +509,10 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Searching value) searching,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_FavouriteLoading value) favouriteLoading,
+    required TResult Function(_Favourite value) favourite,
   }) {
     return loaded(this);
   }
@@ -436,6 +524,10 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Searching value)? searching,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_FavouriteLoading value)? favouriteLoading,
+    TResult? Function(_Favourite value)? favourite,
   }) {
     return loaded?.call(this);
   }
@@ -447,6 +539,10 @@ class _$LoadedImpl implements _Loaded {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Searching value)? searching,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_FavouriteLoading value)? favouriteLoading,
+    TResult Function(_Favourite value)? favourite,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -533,6 +629,10 @@ class _$ErrorImpl implements _Error {
     required TResult Function() loading,
     required TResult Function(List<Post> posts) loaded,
     required TResult Function(String message) error,
+    required TResult Function() searching,
+    required TResult Function(List<Post> posts) searched,
+    required TResult Function() favouriteLoading,
+    required TResult Function(List<Post> posts) favourite,
   }) {
     return error(message);
   }
@@ -544,6 +644,10 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? loading,
     TResult? Function(List<Post> posts)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function()? searching,
+    TResult? Function(List<Post> posts)? searched,
+    TResult? Function()? favouriteLoading,
+    TResult? Function(List<Post> posts)? favourite,
   }) {
     return error?.call(message);
   }
@@ -555,6 +659,10 @@ class _$ErrorImpl implements _Error {
     TResult Function()? loading,
     TResult Function(List<Post> posts)? loaded,
     TResult Function(String message)? error,
+    TResult Function()? searching,
+    TResult Function(List<Post> posts)? searched,
+    TResult Function()? favouriteLoading,
+    TResult Function(List<Post> posts)? favourite,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -570,6 +678,10 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Searching value) searching,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_FavouriteLoading value) favouriteLoading,
+    required TResult Function(_Favourite value) favourite,
   }) {
     return error(this);
   }
@@ -581,6 +693,10 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Searching value)? searching,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_FavouriteLoading value)? favouriteLoading,
+    TResult? Function(_Favourite value)? favourite,
   }) {
     return error?.call(this);
   }
@@ -592,6 +708,10 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Searching value)? searching,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_FavouriteLoading value)? favouriteLoading,
+    TResult Function(_Favourite value)? favourite,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -607,5 +727,631 @@ abstract class _Error implements PostsState {
   String get message;
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SearchingImplCopyWith<$Res> {
+  factory _$$SearchingImplCopyWith(
+          _$SearchingImpl value, $Res Function(_$SearchingImpl) then) =
+      __$$SearchingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SearchingImplCopyWithImpl<$Res>
+    extends _$PostsStateCopyWithImpl<$Res, _$SearchingImpl>
+    implements _$$SearchingImplCopyWith<$Res> {
+  __$$SearchingImplCopyWithImpl(
+      _$SearchingImpl _value, $Res Function(_$SearchingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SearchingImpl implements _Searching {
+  const _$SearchingImpl();
+
+  @override
+  String toString() {
+    return 'PostsState.searching()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SearchingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<Post> posts) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() searching,
+    required TResult Function(List<Post> posts) searched,
+    required TResult Function() favouriteLoading,
+    required TResult Function(List<Post> posts) favourite,
+  }) {
+    return searching();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Post> posts)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? searching,
+    TResult? Function(List<Post> posts)? searched,
+    TResult? Function()? favouriteLoading,
+    TResult? Function(List<Post> posts)? favourite,
+  }) {
+    return searching?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Post> posts)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? searching,
+    TResult Function(List<Post> posts)? searched,
+    TResult Function()? favouriteLoading,
+    TResult Function(List<Post> posts)? favourite,
+    required TResult orElse(),
+  }) {
+    if (searching != null) {
+      return searching();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Searching value) searching,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_FavouriteLoading value) favouriteLoading,
+    required TResult Function(_Favourite value) favourite,
+  }) {
+    return searching(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Searching value)? searching,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_FavouriteLoading value)? favouriteLoading,
+    TResult? Function(_Favourite value)? favourite,
+  }) {
+    return searching?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Searching value)? searching,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_FavouriteLoading value)? favouriteLoading,
+    TResult Function(_Favourite value)? favourite,
+    required TResult orElse(),
+  }) {
+    if (searching != null) {
+      return searching(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Searching implements PostsState {
+  const factory _Searching() = _$SearchingImpl;
+}
+
+/// @nodoc
+abstract class _$$SearchedImplCopyWith<$Res> {
+  factory _$$SearchedImplCopyWith(
+          _$SearchedImpl value, $Res Function(_$SearchedImpl) then) =
+      __$$SearchedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Post> posts});
+}
+
+/// @nodoc
+class __$$SearchedImplCopyWithImpl<$Res>
+    extends _$PostsStateCopyWithImpl<$Res, _$SearchedImpl>
+    implements _$$SearchedImplCopyWith<$Res> {
+  __$$SearchedImplCopyWithImpl(
+      _$SearchedImpl _value, $Res Function(_$SearchedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? posts = null,
+  }) {
+    return _then(_$SearchedImpl(
+      null == posts
+          ? _value._posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchedImpl implements _Searched {
+  const _$SearchedImpl(final List<Post> posts) : _posts = posts;
+
+  final List<Post> _posts;
+  @override
+  List<Post> get posts {
+    if (_posts is EqualUnmodifiableListView) return _posts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_posts);
+  }
+
+  @override
+  String toString() {
+    return 'PostsState.searched(posts: $posts)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchedImpl &&
+            const DeepCollectionEquality().equals(other._posts, _posts));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_posts));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchedImplCopyWith<_$SearchedImpl> get copyWith =>
+      __$$SearchedImplCopyWithImpl<_$SearchedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<Post> posts) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() searching,
+    required TResult Function(List<Post> posts) searched,
+    required TResult Function() favouriteLoading,
+    required TResult Function(List<Post> posts) favourite,
+  }) {
+    return searched(posts);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Post> posts)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? searching,
+    TResult? Function(List<Post> posts)? searched,
+    TResult? Function()? favouriteLoading,
+    TResult? Function(List<Post> posts)? favourite,
+  }) {
+    return searched?.call(posts);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Post> posts)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? searching,
+    TResult Function(List<Post> posts)? searched,
+    TResult Function()? favouriteLoading,
+    TResult Function(List<Post> posts)? favourite,
+    required TResult orElse(),
+  }) {
+    if (searched != null) {
+      return searched(posts);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Searching value) searching,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_FavouriteLoading value) favouriteLoading,
+    required TResult Function(_Favourite value) favourite,
+  }) {
+    return searched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Searching value)? searching,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_FavouriteLoading value)? favouriteLoading,
+    TResult? Function(_Favourite value)? favourite,
+  }) {
+    return searched?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Searching value)? searching,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_FavouriteLoading value)? favouriteLoading,
+    TResult Function(_Favourite value)? favourite,
+    required TResult orElse(),
+  }) {
+    if (searched != null) {
+      return searched(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Searched implements PostsState {
+  const factory _Searched(final List<Post> posts) = _$SearchedImpl;
+
+  List<Post> get posts;
+  @JsonKey(ignore: true)
+  _$$SearchedImplCopyWith<_$SearchedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FavouriteLoadingImplCopyWith<$Res> {
+  factory _$$FavouriteLoadingImplCopyWith(_$FavouriteLoadingImpl value,
+          $Res Function(_$FavouriteLoadingImpl) then) =
+      __$$FavouriteLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FavouriteLoadingImplCopyWithImpl<$Res>
+    extends _$PostsStateCopyWithImpl<$Res, _$FavouriteLoadingImpl>
+    implements _$$FavouriteLoadingImplCopyWith<$Res> {
+  __$$FavouriteLoadingImplCopyWithImpl(_$FavouriteLoadingImpl _value,
+      $Res Function(_$FavouriteLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FavouriteLoadingImpl implements _FavouriteLoading {
+  const _$FavouriteLoadingImpl();
+
+  @override
+  String toString() {
+    return 'PostsState.favouriteLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FavouriteLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<Post> posts) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() searching,
+    required TResult Function(List<Post> posts) searched,
+    required TResult Function() favouriteLoading,
+    required TResult Function(List<Post> posts) favourite,
+  }) {
+    return favouriteLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Post> posts)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? searching,
+    TResult? Function(List<Post> posts)? searched,
+    TResult? Function()? favouriteLoading,
+    TResult? Function(List<Post> posts)? favourite,
+  }) {
+    return favouriteLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Post> posts)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? searching,
+    TResult Function(List<Post> posts)? searched,
+    TResult Function()? favouriteLoading,
+    TResult Function(List<Post> posts)? favourite,
+    required TResult orElse(),
+  }) {
+    if (favouriteLoading != null) {
+      return favouriteLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Searching value) searching,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_FavouriteLoading value) favouriteLoading,
+    required TResult Function(_Favourite value) favourite,
+  }) {
+    return favouriteLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Searching value)? searching,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_FavouriteLoading value)? favouriteLoading,
+    TResult? Function(_Favourite value)? favourite,
+  }) {
+    return favouriteLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Searching value)? searching,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_FavouriteLoading value)? favouriteLoading,
+    TResult Function(_Favourite value)? favourite,
+    required TResult orElse(),
+  }) {
+    if (favouriteLoading != null) {
+      return favouriteLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FavouriteLoading implements PostsState {
+  const factory _FavouriteLoading() = _$FavouriteLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$FavouriteImplCopyWith<$Res> {
+  factory _$$FavouriteImplCopyWith(
+          _$FavouriteImpl value, $Res Function(_$FavouriteImpl) then) =
+      __$$FavouriteImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Post> posts});
+}
+
+/// @nodoc
+class __$$FavouriteImplCopyWithImpl<$Res>
+    extends _$PostsStateCopyWithImpl<$Res, _$FavouriteImpl>
+    implements _$$FavouriteImplCopyWith<$Res> {
+  __$$FavouriteImplCopyWithImpl(
+      _$FavouriteImpl _value, $Res Function(_$FavouriteImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? posts = null,
+  }) {
+    return _then(_$FavouriteImpl(
+      null == posts
+          ? _value._posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FavouriteImpl implements _Favourite {
+  const _$FavouriteImpl(final List<Post> posts) : _posts = posts;
+
+  final List<Post> _posts;
+  @override
+  List<Post> get posts {
+    if (_posts is EqualUnmodifiableListView) return _posts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_posts);
+  }
+
+  @override
+  String toString() {
+    return 'PostsState.favourite(posts: $posts)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FavouriteImpl &&
+            const DeepCollectionEquality().equals(other._posts, _posts));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_posts));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FavouriteImplCopyWith<_$FavouriteImpl> get copyWith =>
+      __$$FavouriteImplCopyWithImpl<_$FavouriteImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<Post> posts) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() searching,
+    required TResult Function(List<Post> posts) searched,
+    required TResult Function() favouriteLoading,
+    required TResult Function(List<Post> posts) favourite,
+  }) {
+    return favourite(posts);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Post> posts)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? searching,
+    TResult? Function(List<Post> posts)? searched,
+    TResult? Function()? favouriteLoading,
+    TResult? Function(List<Post> posts)? favourite,
+  }) {
+    return favourite?.call(posts);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Post> posts)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? searching,
+    TResult Function(List<Post> posts)? searched,
+    TResult Function()? favouriteLoading,
+    TResult Function(List<Post> posts)? favourite,
+    required TResult orElse(),
+  }) {
+    if (favourite != null) {
+      return favourite(posts);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Searching value) searching,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_FavouriteLoading value) favouriteLoading,
+    required TResult Function(_Favourite value) favourite,
+  }) {
+    return favourite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Searching value)? searching,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_FavouriteLoading value)? favouriteLoading,
+    TResult? Function(_Favourite value)? favourite,
+  }) {
+    return favourite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Searching value)? searching,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_FavouriteLoading value)? favouriteLoading,
+    TResult Function(_Favourite value)? favourite,
+    required TResult orElse(),
+  }) {
+    if (favourite != null) {
+      return favourite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Favourite implements PostsState {
+  const factory _Favourite(final List<Post> posts) = _$FavouriteImpl;
+
+  List<Post> get posts;
+  @JsonKey(ignore: true)
+  _$$FavouriteImplCopyWith<_$FavouriteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

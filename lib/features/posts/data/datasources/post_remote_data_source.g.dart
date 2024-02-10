@@ -21,9 +21,15 @@ class _PostsWebService implements PostsWebService {
   String? baseUrl;
 
   @override
-  Future<List<PostModel>> getAllPosts() async {
+  Future<List<PostModel>> getAllPosts(
+    int limit,
+    int page,
+  ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'_limit': limit,
+      r'_page': page,
+    };
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result =
