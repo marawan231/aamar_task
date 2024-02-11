@@ -1,5 +1,3 @@
-import 'package:aamar_task/core/navigator/route_generator.dart';
-import 'package:aamar_task/core/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_offline/flutter_offline.dart';
 
@@ -28,10 +26,8 @@ class _InternetConnectionCheckerState extends State<InternetConnectionChecker> {
         Widget child,
       ) {
         if (connectivity == ConnectivityResult.none) {
-          // showErrorSnackBar(message: 'asdasdadsdasd', context: context);
           return child;
         } else {
-          RouterGenerator.postsCubit.emptyState;
           return child;
         }
       },
