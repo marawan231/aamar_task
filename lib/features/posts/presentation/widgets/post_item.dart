@@ -32,7 +32,14 @@ class PostItem extends StatelessWidget {
             _buildPostHeader(),
             SizedBox(height: 8),
             CustomSubtitles(
-                subtitle: post.body.toString(), isDetails: isDetails ?? false)
+                subtitle: post.body.toString(), isDetails: isDetails ?? false),
+            // Text(
+            //   post.id.toString(),
+            //   style: TextStyle(
+            //     fontSize: 16.sp,
+            //     color: ColorsManager.black,
+            //   ),
+            // ),
           ],
         ),
       ),

@@ -32,7 +32,9 @@ class PostDetailsView extends StatelessWidget {
                     ],
                   ),
                   16.verticalSpace,
-                  PostItem(post: post, isDetails: true),
+                  Hero(
+                      tag: post.id.toString(),
+                      child: PostItem(post: post, isDetails: true)),
                 ],
               ),
             );

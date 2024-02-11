@@ -40,6 +40,7 @@ class PostRepositoryImplementation extends PostsRepository {
           await postsWebService.getAllPosts(limit: limit, page: page);
 
       List<Post> savedResponse = await getIt<PostsManager>().getPosts();
+
       if ((savedResponse.isEmpty ||
           savedResponse == [] ||
           savedResponse == null ||

@@ -27,7 +27,7 @@ void main() {
   ];
 
   test(
-    'should send otp from the repository',
+    'should get posts from the repository',
     () async {
       // arrange
       when(mockPostsRepository.getAllPosts(limit: 10, page: 1))
