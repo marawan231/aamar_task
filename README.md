@@ -48,12 +48,12 @@ Integrated for mocking and testing purposes, Mockito facilitates the creation of
 ### json_serializable and freezed: 
 Used for code generation, these tools automate the creation of serialization/deserialization code and enhance the usage of immutable classes.
 
-##How to Run the App
+## How to Run the App
 - Make sure you have Flutter and Dart installed on your machine.
 
 - Clone the repository and navigate to the project directory.
 
-_ Run the following command to install dependencies:
+- Run the following command to install dependencies:
   flutter pub get
 
 
