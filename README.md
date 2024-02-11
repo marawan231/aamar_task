@@ -13,7 +13,8 @@ Contains the UI code, including widgets, screens, and Cubit for state management
 
 Holds business logic and entities, defining the core functionality of the application.
 
-### Data: Manages data sources, repositories, and interfaces for interacting with external services.
+### Data:
+Manages data sources, repositories, and interfaces for interacting with external services.
 
 ## Tools and Packages Used
 ### Architecture
