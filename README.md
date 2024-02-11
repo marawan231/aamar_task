@@ -6,25 +6,33 @@ This Flutter application fetches a list of posts from the JSONPlaceholder API an
 ## Project Structure
 The project is organized based on the Clean Architecture principles, separating the code into layers with distinct responsibilities:
 
-### Presentation: Contains the UI code, including widgets, screens, and Cubit for state management.
+### Presentation:
+Contains the UI code, including widgets, screens, and Cubit for state management.
 
-### Domain: Holds business logic and entities, defining the core functionality of the application.
+### Domain:
+
+Holds business logic and entities, defining the core functionality of the application.
 
 ### Data: Manages data sources, repositories, and interfaces for interacting with external services.
 
 ## Tools and Packages Used
 ### Architecture
 Clean Architecture: The project adheres to the Clean Architecture pattern, promoting separation of concerns and maintainability.
-### Network Requests
-### Retrofit: Utilized for making web service calls, Retrofit simplifies API requests and ensures type safety.
-### Local Data Storage
-### Shared Preferences: Chosen for local data storage, Shared Preferences provides a straightforward key-value storage mechanism.
-### State Management
-### Cubit: Employed for state management, Cubit simplifies the management and updating of the application's state.
-### Testing
-### Mockito: Integrated for mocking and testing purposes, Mockito facilitates the creation of mock objects and verifies interactions.
-### Code Generation
-### json_serializable and freezed: Used for code generation, these tools automate the creation of serialization/deserialization code and enhance the usage of immutable classes.
+## Network Requests
+### Retrofit:
+Utilized for making web service calls, Retrofit simplifies API requests and ensures type safety.
+## Local Data Storage
+### Shared Preferences:
+Chosen for local data storage, Shared Preferences provides a straightforward key-value storage mechanism.
+## State Management
+### Cubit:
+Employed for state management, Cubit simplifies the management and updating of the application's state.
+## Testing
+### Mockito:
+Integrated for mocking and testing purposes, Mockito facilitates the creation of mock objects and verifies interactions.
+## Code Generation
+### json_serializable and freezed: 
+Used for code generation, these tools automate the creation of serialization/deserialization code and enhance the usage of immutable classes.
 ## Additional Packages
 dio: HTTP client for making API requests.
 
