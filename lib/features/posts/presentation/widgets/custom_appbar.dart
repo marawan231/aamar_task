@@ -1,3 +1,5 @@
+import 'package:aamar_task/core/di/dependency_injection.dart';
+import 'package:aamar_task/core/helpers/local_database_helper.dart';
 import 'package:aamar_task/core/res/custom_text_styles.dart';
 import 'package:aamar_task/core/theming/colors.dart';
 import 'package:aamar_task/features/posts/presentation/widgets/custom_textfield.dart';
@@ -37,6 +39,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           'Posts',
           style: getBoldStyle(fontSize: 24.sp),
         ),
+        //clear the cache
+        // TextButton(
+        //   onPressed: () {
+        //     getIt<PostsManager>().removeAllPosts();
+        //   },
+        //   child: Text('Clear Cache'),
+        // )
       ],
     );
   }

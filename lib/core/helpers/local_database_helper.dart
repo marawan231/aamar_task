@@ -38,6 +38,7 @@ class PostsManager {
       return Post(
           body: postData['body'],
           title: postData['title'],
+          userId: postData['userId'],
           id: postData['id'],
           isFavourite: postData['isFavourite']);
     }).toList();

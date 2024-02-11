@@ -5,7 +5,8 @@ import 'package:aamar_task/core/di/dependency_injection.dart';
 import 'package:aamar_task/core/helpers/local_database_helper.dart';
 import 'package:aamar_task/core/network_service/api_result.dart';
 import 'package:aamar_task/core/network_service/network_exceptions.dart';
-import 'package:aamar_task/features/posts/data/datasources/post_remote_data_source.dart';
+import 'package:aamar_task/features/posts/data/datasources/client/post_remote_data_source.dart';
+import 'package:aamar_task/features/posts/data/datasources/remote/posts_remote_data_source_implemtnatation.dart';
 import 'package:aamar_task/features/posts/domain/entities/post.dart';
 import 'package:aamar_task/features/posts/domain/repositories/posts_repository.dart';
 import 'package:aamar_task/features/posts/presentation/bloc/cubit/posts_cubit.dart';
@@ -13,9 +14,9 @@ import 'package:aamar_task/features/posts/presentation/bloc/cubit/posts_cubit.da
 /// `PostRepositoryImplementation` is a class that implements `PostsRepository`.
 ///
 /// It uses a `PostsWebService` to fetch posts from a web service.
-class PostRepositoryImplementation implements PostsRepository {
+class PostRepositoryImplementation extends PostsRepository {
   /// The `PostsWebService` used to fetch posts.
-  final PostsWebService postsWebService;
+  final PostsRemoteDataSourceAbstract postsWebService;
 
   /// Constructor that initializes `postsWebService`.
   PostRepositoryImplementation(this.postsWebService);
@@ -35,7 +36,8 @@ class PostRepositoryImplementation implements PostsRepository {
       {required int limit, required int page}) async {
     // pages = page;
     try {
-      List<Post> response = await postsWebService.getAllPosts(limit, page);
+      List<Post> response =
+          await postsWebService.getAllPosts(limit: limit, page: page);
 
       List<Post> savedResponse = await getIt<PostsManager>().getPosts();
       if ((savedResponse.isEmpty ||

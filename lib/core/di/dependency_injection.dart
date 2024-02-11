@@ -1,6 +1,7 @@
 import 'package:aamar_task/core/helpers/local_database_helper.dart';
 import 'package:aamar_task/core/network_service/dio_setup.dart';
-import 'package:aamar_task/features/posts/data/datasources/post_remote_data_source.dart';
+import 'package:aamar_task/features/posts/data/datasources/client/post_remote_data_source.dart';
+import 'package:aamar_task/features/posts/data/datasources/remote/posts_remote_data_source_implemtnatation.dart';
 import 'package:aamar_task/features/posts/data/repositories/posts_repository_implementation.dart';
 import 'package:aamar_task/features/posts/domain/repositories/posts_repository.dart';
 import 'package:aamar_task/features/posts/domain/usecases/get_all_posts_usecase.dart';
@@ -17,9 +18,16 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<PostsManager>(() => PostsManager());
 
   getIt.registerLazySingleton<PostsWebService>(() => PostsWebService(dio));
+  //posts data source
+  getIt.registerLazySingleton<PostsRemoteDataSourceImplement>(
+      () => PostsRemoteDataSourceImplement(getIt<PostsWebService>()));
+
+  //posts data source
+
+  //PostsRemoteDataSourceImplement
   // posts Repository
-  getIt.registerLazySingleton<PostsRepository>(
-      () => PostRepositoryImplementation(getIt<PostsWebService>()));
+  getIt.registerLazySingleton<PostsRepository>(() =>
+      PostRepositoryImplementation(getIt<PostsRemoteDataSourceImplement>()));
   //use case
   getIt.registerFactory<GetAllPostsUseCase>(
       () => GetAllPostsUseCase(getIt<PostsRepository>()));

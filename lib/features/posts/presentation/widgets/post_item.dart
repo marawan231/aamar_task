@@ -13,14 +13,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 /// It takes a `Post` object as a parameter and displays the post's title, body, and favourite status.
 /// The post item is wrapped in an `InkWell` widget that navigates to the post details when tapped.
 class PostItem extends StatelessWidget {
-  const PostItem({Key? key, required this.post}) : super(key: key);
+  const PostItem({Key? key, required this.post, this.isDetails})
+      : super(key: key);
 
   final Post post;
+  final bool? isDetails;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => _navigateToPostDetails(context),
+      onTap: () => isDetails ?? false ? null : _navigateToPostDetails(context),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
         decoration: _getContainerDecoration(),
@@ -29,7 +31,8 @@ class PostItem extends StatelessWidget {
           children: [
             _buildPostHeader(),
             SizedBox(height: 8),
-            CustomSubtitles(subtitle: post.body.toString())
+            CustomSubtitles(
+                subtitle: post.body.toString(), isDetails: isDetails ?? false)
           ],
         ),
       ),
@@ -46,7 +49,8 @@ class PostItem extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Customtitle(title: post.title.toString()),
+        Customtitle(
+            title: post.title.toString(), isDetails: isDetails ?? false),
         SizedBox(width: 32),
         CustomFavouriteButton(post: post),
       ],
