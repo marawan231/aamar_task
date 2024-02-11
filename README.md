@@ -47,6 +47,24 @@ Integrated for mocking and testing purposes, Mockito facilitates the creation of
 ## Code Generation
 ### json_serializable and freezed: 
 Used for code generation, these tools automate the creation of serialization/deserialization code and enhance the usage of immutable classes.
+
+##How to Run the App
+- Make sure you have Flutter and Dart installed on your machine.
+
+- Clone the repository and navigate to the project directory.
+
+_ Run the following command to install dependencies:
+  flutter pub get
+
+
+
+- Connect a device or start an emulator.
+- Run the app:
+ flutter run
+
+
+
+
 ## Additional Packages
 dio: HTTP client for making API requests.
 
@@ -77,6 +95,8 @@ lottie: Renders Adobe After Effects animations exported as JSON.
 shimmer: Adds shimmer effect to Flutter applications.
 
 flutter_native_splash: Customizes the splash screen appearance.
+
+
 
 
 
