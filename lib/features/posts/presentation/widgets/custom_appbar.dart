@@ -4,7 +4,6 @@ import 'package:aamar_task/features/posts/presentation/widgets/custom_textfield.
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
 
@@ -53,7 +52,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   _setDecoration() {
     return BoxDecoration(
       color: ColorsManager.white,
-      border: Border.all(color: ColorsManager.black.withOpacity(0.5)),
+      border: Border(
+        bottom: BorderSide(
+          color: ColorsManager.black.withOpacity(0.1),
+          width: 1,
+        ),
+      ),
       borderRadius: BorderRadius.only(
         bottomLeft: Radius.circular(32.r),
         bottomRight: Radius.circular(32.r),

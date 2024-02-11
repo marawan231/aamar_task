@@ -54,16 +54,22 @@ dependencies:
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
+  
+    
+
   flutter_test:
     sdk: flutter
   http_mock_adapter: ^0.5.0
   mockito: ^5.4.4
 flutter_icons:
+
   android: true
   ios: true
   image_path: "assets/images/aamar_logo.png"
   adaptive_icon_background: "#ffffff"
   adaptive_icon_foreground: "assets/images/aamar_logo.png"
+  
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

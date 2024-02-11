@@ -55,9 +55,7 @@ class _PostsViewState extends State<PostsView> {
 
   /// Builds a `PostsList` widget with the given posts.
   Widget _buildList(List<Post> posts) {
-    return Hero(
-        tag: 'posts',
-        child: PostsList(posts: posts, scrollController: scrollController));
+    return PostsList(posts: posts, scrollController: scrollController);
   }
 
   /// Builds a loading indicator or a list of posts depending on whether there are any loaded posts.
@@ -101,7 +99,6 @@ class _PostsViewState extends State<PostsView> {
   /// Loads more posts.
   void _loadMorePosts() {
     isLoadingMore = true;
-
     RouterGenerator.postsCubit.loadPosts(limit: 10);
   }
 

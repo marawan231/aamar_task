@@ -22,19 +22,16 @@ class PostsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
-      onRefresh: () async => RouterGenerator.postsCubit.loadPosts(limit: 10),
-      child: posts.isEmpty
-          ? EmptyLottie()
-          : ListView.separated(
-              controller: scrollController,
-              padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
-              itemBuilder: _buildPostItem,
-              separatorBuilder: (context, index) =>
-                  SizedBox(height: 16), //add space between items
-              itemCount: _getItemCount(),
-            ),
-    );
+    return posts.isEmpty
+        ? EmptyLottie()
+        : ListView.separated(
+            controller: scrollController,
+            padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
+            itemBuilder: _buildPostItem,
+            separatorBuilder: (context, index) =>
+                SizedBox(height: 16), //add space between items
+            itemCount: _getItemCount(),
+          );
   }
 
   /// Builds a post item for the given index.
