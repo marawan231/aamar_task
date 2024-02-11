@@ -3,6 +3,7 @@ import 'package:aamar_task/core/utils/utils.dart';
 import 'package:aamar_task/features/posts/domain/entities/post.dart';
 import 'package:aamar_task/features/posts/presentation/bloc/cubit/posts_cubit.dart';
 import 'package:aamar_task/features/posts/presentation/widgets/custom_appbar.dart';
+import 'package:aamar_task/features/posts/presentation/widgets/loading_items.dart';
 import 'package:aamar_task/features/posts/presentation/widgets/posts_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,10 +40,10 @@ class _PostsViewState extends State<PostsView> {
               loading: () => _buildLoadingPostsCase(),
               loaded: (posts) =>
                   _buildList(RouterGenerator.postsCubit.loadedPosts),
-              favouriteLoading: () =>
-                  _buildList(RouterGenerator.postsCubit.loadedPosts),
-              favourite: (posts) =>
-                  _buildList(RouterGenerator.postsCubit.loadedPosts),
+              favouriteLoading: () => _buildList(
+                RouterGenerator.postsCubit.loadedPosts,
+              ),
+              favourite: (posts) => _buildList(posts),
               searched: (posts) => _buildList(posts),
               error: (message) => _buildErrorCase(message),
               orElse: () => _buildDefaultCase(),
@@ -61,7 +62,7 @@ class _PostsViewState extends State<PostsView> {
   /// Builds a loading indicator or a list of posts depending on whether there are any loaded posts.
   Widget _buildLoadingPostsCase() {
     return RouterGenerator.postsCubit.loadedPosts.isEmpty
-        ? Center(child: CircularProgressIndicator())
+        ? LoadingItems()
         : _buildList(RouterGenerator.postsCubit.loadedPosts);
   }
 

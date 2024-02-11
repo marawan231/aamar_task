@@ -34,11 +34,8 @@ class PostItem extends StatelessWidget {
             CustomSubtitles(
                 subtitle: post.body.toString(), isDetails: isDetails ?? false),
             // Text(
-            //   post.id.toString(),
-            //   style: TextStyle(
-            //     fontSize: 16.sp,
-            //     color: ColorsManager.black,
-            //   ),
+            //   'ID: ${post.id}',
+            //   style: TextStyle(color: ColorsManager.black),
             // ),
           ],
         ),

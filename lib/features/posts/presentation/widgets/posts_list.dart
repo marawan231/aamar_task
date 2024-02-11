@@ -1,5 +1,6 @@
 import 'package:aamar_task/core/navigator/route_generator.dart';
 import 'package:aamar_task/features/posts/domain/entities/post.dart';
+import 'package:aamar_task/features/posts/presentation/widgets/loading_items.dart';
 import 'package:aamar_task/features/posts/presentation/widgets/post_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -42,9 +43,7 @@ class PostsList extends StatelessWidget {
     if (index == posts.length &&
         RouterGenerator.postsCubit.searchedPosts.isEmpty &&
         _isNoError()) {
-      return posts.length == 100
-          ? SizedBox.shrink()
-          : const Center(child: CircularProgressIndicator());
+      return posts.length == 100 ? SizedBox.shrink() : ShimmerContainer();
     }
     return PostItem(post: posts[index]);
   }

@@ -3,17 +3,19 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
 
 import 'package:aamar_task/core/network_service/api_result.dart' as _i2;
 import 'package:aamar_task/features/posts/data/datasources/client/post_remote_data_source.dart'
-    as _i8;
+    as _i9;
 import 'package:aamar_task/features/posts/data/datasources/remote/posts_remote_data_source_implemtnatation.dart'
-    as _i6;
-import 'package:aamar_task/features/posts/data/models/post_model.dart' as _i7;
-import 'package:aamar_task/features/posts/domain/entities/post.dart' as _i5;
-import 'package:aamar_task/features/posts/domain/repositories/posts_repository.dart'
     as _i3;
+import 'package:aamar_task/features/posts/data/models/post_model.dart' as _i7;
+import 'package:aamar_task/features/posts/data/repositories/posts_repository_implementation.dart'
+    as _i8;
+import 'package:aamar_task/features/posts/domain/entities/post.dart' as _i6;
+import 'package:aamar_task/features/posts/domain/repositories/posts_repository.dart'
+    as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -39,16 +41,27 @@ class _FakeApiResult_0<T> extends _i1.SmartFake implements _i2.ApiResult<T> {
         );
 }
 
+class _FakePostsRemoteDataSourceAbstract_1 extends _i1.SmartFake
+    implements _i3.PostsRemoteDataSourceAbstract {
+  _FakePostsRemoteDataSourceAbstract_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [PostsRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPostsRepository extends _i1.Mock implements _i3.PostsRepository {
+class MockPostsRepository extends _i1.Mock implements _i4.PostsRepository {
   MockPostsRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.ApiResult<List<_i5.Post>>> getAllPosts({
+  _i5.Future<_i2.ApiResult<List<_i6.Post>>> getAllPosts({
     required int? limit,
     required int? page,
   }) =>
@@ -61,8 +74,8 @@ class MockPostsRepository extends _i1.Mock implements _i3.PostsRepository {
             #page: page,
           },
         ),
-        returnValue: _i4.Future<_i2.ApiResult<List<_i5.Post>>>.value(
-            _FakeApiResult_0<List<_i5.Post>>(
+        returnValue: _i5.Future<_i2.ApiResult<List<_i6.Post>>>.value(
+            _FakeApiResult_0<List<_i6.Post>>(
           this,
           Invocation.method(
             #getAllPosts,
@@ -73,20 +86,20 @@ class MockPostsRepository extends _i1.Mock implements _i3.PostsRepository {
             },
           ),
         )),
-      ) as _i4.Future<_i2.ApiResult<List<_i5.Post>>>);
+      ) as _i5.Future<_i2.ApiResult<List<_i6.Post>>>);
 }
 
 /// A class which mocks [PostsRemoteDataSourceAbstract].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockPostsRemoteDataSourceAbstract extends _i1.Mock
-    implements _i6.PostsRemoteDataSourceAbstract {
+    implements _i3.PostsRemoteDataSourceAbstract {
   MockPostsRemoteDataSourceAbstract() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<List<_i7.PostModel>> getAllPosts({
+  _i5.Future<List<_i7.PostModel>> getAllPosts({
     required int? limit,
     required int? page,
   }) =>
@@ -99,20 +112,67 @@ class MockPostsRemoteDataSourceAbstract extends _i1.Mock
             #page: page,
           },
         ),
-        returnValue: _i4.Future<List<_i7.PostModel>>.value(<_i7.PostModel>[]),
-      ) as _i4.Future<List<_i7.PostModel>>);
+        returnValue: _i5.Future<List<_i7.PostModel>>.value(<_i7.PostModel>[]),
+      ) as _i5.Future<List<_i7.PostModel>>);
+}
+
+/// A class which mocks [PostRepositoryImplementation].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockPostRepositoryImplementation extends _i1.Mock
+    implements _i8.PostRepositoryImplementation {
+  MockPostRepositoryImplementation() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i3.PostsRemoteDataSourceAbstract get postsWebService => (super.noSuchMethod(
+        Invocation.getter(#postsWebService),
+        returnValue: _FakePostsRemoteDataSourceAbstract_1(
+          this,
+          Invocation.getter(#postsWebService),
+        ),
+      ) as _i3.PostsRemoteDataSourceAbstract);
+
+  @override
+  _i5.Future<_i2.ApiResult<List<_i6.Post>>> getAllPosts({
+    required int? limit,
+    required int? page,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getAllPosts,
+          [],
+          {
+            #limit: limit,
+            #page: page,
+          },
+        ),
+        returnValue: _i5.Future<_i2.ApiResult<List<_i6.Post>>>.value(
+            _FakeApiResult_0<List<_i6.Post>>(
+          this,
+          Invocation.method(
+            #getAllPosts,
+            [],
+            {
+              #limit: limit,
+              #page: page,
+            },
+          ),
+        )),
+      ) as _i5.Future<_i2.ApiResult<List<_i6.Post>>>);
 }
 
 /// A class which mocks [PostsWebService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPostsApiServices extends _i1.Mock implements _i8.PostsWebService {
+class MockPostsApiServices extends _i1.Mock implements _i9.PostsWebService {
   MockPostsApiServices() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<List<_i7.PostModel>> getAllPosts(
+  _i5.Future<List<_i7.PostModel>> getAllPosts(
     int? limit,
     int? page,
   ) =>
@@ -124,6 +184,6 @@ class MockPostsApiServices extends _i1.Mock implements _i8.PostsWebService {
             page,
           ],
         ),
-        returnValue: _i4.Future<List<_i7.PostModel>>.value(<_i7.PostModel>[]),
-      ) as _i4.Future<List<_i7.PostModel>>);
+        returnValue: _i5.Future<List<_i7.PostModel>>.value(<_i7.PostModel>[]),
+      ) as _i5.Future<List<_i7.PostModel>>);
 }

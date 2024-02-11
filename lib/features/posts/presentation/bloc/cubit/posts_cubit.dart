@@ -38,6 +38,7 @@ class PostsCubit extends Cubit<PostsState> {
                       context: Go.navigatorKey.currentContext!);
                 })
               : null;
+          // await getIt<PostsManager>().savePosts(posts);
 
           loadedPosts.addAll(posts);
 
@@ -45,12 +46,19 @@ class PostsCubit extends Cubit<PostsState> {
         },
         failure: (message) async {
           if (message == DioExceptionType.noInternetConnection()) {
+            // await getIt<PostsManager>().savePosts(loadedPosts);
+
             //get from local storage
             List<Post> getPosts = await getIt<PostsManager>().getPosts();
             loadedPosts = getPosts;
+            // pages++;
+
             emit(PostsState.error(DioExceptionType.getErrorMessage(message)));
             // emit(PostsState.loaded(getPosts));
           } else {
+            List<Post> getPosts = await getIt<PostsManager>().getPosts();
+            loadedPosts = getPosts;
+            // pages++;
             emit(PostsState.error(DioExceptionType.getErrorMessage(message)));
           }
         },
@@ -82,7 +90,11 @@ class PostsCubit extends Cubit<PostsState> {
 
     List<Post> getPosts = await getIt<PostsManager>().getPosts();
     loadedPosts = getPosts;
-    emit(PostsState.favourite(getPosts));
+    emit(PostsState.favourite(searchedPosts.isEmpty
+        ? loadedPosts
+        : searchedPosts.isEmpty
+            ? loadedPosts
+            : searchedPosts));
 
     // emit(PostsState.favourite(loadedPosts));
   }
