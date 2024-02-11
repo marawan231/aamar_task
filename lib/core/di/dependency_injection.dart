@@ -1,4 +1,5 @@
 import 'package:aamar_task/core/helpers/local_database_helper.dart';
+import 'package:aamar_task/core/internet/internet_connection_checker.dart';
 import 'package:aamar_task/core/network_service/dio_setup.dart';
 import 'package:aamar_task/features/posts/data/datasources/client/post_remote_data_source.dart';
 import 'package:aamar_task/features/posts/data/datasources/remote/posts_remote_data_source_implemtnatation.dart';
@@ -12,10 +13,13 @@ import 'package:get_it/get_it.dart';
 final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
+  
   // Dio & ApiService
   Dio dio = setupDio();
   //shared preferences
   getIt.registerLazySingleton<PostsManager>(() => PostsManager());
+  //network info
+  // getIt.resetLazySingleton<NetworkInfo> ( () => NetworkInfoImpl());  
 
   getIt.registerLazySingleton<PostsWebService>(() => PostsWebService(dio));
   //posts data source

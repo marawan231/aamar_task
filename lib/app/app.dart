@@ -1,3 +1,4 @@
+import 'package:aamar_task/core/internet/internet_connection_checker.dart';
 import 'package:aamar_task/core/navigator/named_routes.dart';
 import 'package:aamar_task/core/navigator/navigator.dart';
 import 'package:aamar_task/core/navigator/route_generator.dart';
@@ -50,11 +51,13 @@ class _MyAppState extends State<MyApp> {
               theme: appTheme,
               navigatorKey: Go.navigatorKey,
               initialRoute: NamedRoutes.posts.routeName,
-              builder: (context, child) {
+             builder: (context, child) {
                 return MediaQuery(
                   data: MediaQuery.of(context)
-                      .copyWith(textScaler: const TextScaler.linear(1.0)),
-                  child: child!,
+                      .copyWith(textScaler: TextScaler.linear(1.0)),
+                  child: InternetConnectionChecker(
+                    child: child!,
+                  ),
                 );
               });
         });

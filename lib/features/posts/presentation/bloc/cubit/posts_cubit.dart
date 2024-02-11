@@ -98,4 +98,9 @@ class PostsCubit extends Cubit<PostsState> {
 
     // emit(PostsState.favourite(loadedPosts));
   }
+
+  //empty state
+  void emptyState() {
+    emit(PostsState.initial());
+  }
 }

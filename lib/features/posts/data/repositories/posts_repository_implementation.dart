@@ -3,13 +3,13 @@
 
 import 'package:aamar_task/core/di/dependency_injection.dart';
 import 'package:aamar_task/core/helpers/local_database_helper.dart';
+import 'package:aamar_task/core/internet/internet_connection_checker.dart';
 import 'package:aamar_task/core/network_service/api_result.dart';
 import 'package:aamar_task/core/network_service/network_exceptions.dart';
 import 'package:aamar_task/features/posts/data/datasources/remote/posts_remote_data_source_implemtnatation.dart';
 import 'package:aamar_task/features/posts/domain/entities/post.dart';
 import 'package:aamar_task/features/posts/domain/repositories/posts_repository.dart';
 import 'package:aamar_task/features/posts/presentation/bloc/cubit/posts_cubit.dart';
-
 /// `PostRepositoryImplementation` is a class that implements `PostsRepository`.
 ///
 /// It uses a `PostsWebService` to fetch posts from a web service.
@@ -39,7 +39,7 @@ class PostRepositoryImplementation extends PostsRepository {
           await postsWebService.getAllPosts(limit: limit, page: page);
 
       List<Post> savedResponse = await getIt<PostsManager>().getPosts();
-
+      // NetworkIn
       if ((savedResponse.isEmpty ||
           savedResponse == [] ||
           savedResponse == null ||
