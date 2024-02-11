@@ -13,8 +13,33 @@ https://github.com/marawan231/aamar_task/assets/81522801/e6504505-5da8-4b35-964f
 
 
 
+
 ## Overview
 This Flutter application fetches a list of posts from the JSONPlaceholder API and displays them in a user-friendly manner. It includes features such as fetching data, displaying a list of posts with pagination, post details view, search functionality, and optional features like saving favorite posts locally.
+
+ # Aamar - Flutter Project Features
+## 1. State Management
+[🚀] Cubit State Management: Efficient state management with Cubit. Done
+## 2. Flutter Version
+[🚀] Latest Stable Version: Utilizing the latest stable version of Flutter. Done
+## 3. Data Handling
+[🚀] Fetch Posts from API: Successfully fetching posts from the API. Done
+[🚀] Error Handling: Graceful error handling for improved user experience. Done
+## 4. UI/UX
+[🚀] User-Friendly Design: Clean and user-friendly UI/UX. Done
+## 5. Post Details
+[🚀] Details Screen: Implemented a details screen displaying post details. Done
+## 6. Pagination
+[🚀] Pagination: Implemented pagination for seamless post loading. Done
+## 7. Search Functionality
+[🚀] Search Bar with Local Search: Added a search bar for local post search. Done
+## 8. Local Data Persistence
+[🚀] Save Fav Posts Locally: Implemented local storage for saving favorite posts. Done
+## 9. Testing
+[🚀] Unit Test: Included unit tests for code reliability. Done
+Feel free to reach out for any clarifications or further details.
+
+
 
 ## Project Structure
 The project is organized based on the Clean Architecture principles, separating the code into layers with distinct responsibilities:
