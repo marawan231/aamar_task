@@ -1,4 +1,5 @@
 import 'package:aamar_task/core/di/dependency_injection.dart';
+import 'package:aamar_task/core/navigator/Constants/imports_constants.dart';
 import 'package:aamar_task/features/posts/domain/entities/post.dart';
 import 'package:aamar_task/features/posts/presentation/bloc/cubit/posts_cubit.dart';
 import 'package:aamar_task/features/posts/presentation/pages/post_details_view.dart';
@@ -41,6 +42,7 @@ class RouterGenerator {
     switch (namedRoute) {
       case NamedRoutes.posts:
         return _pageRouter.build(
+            transition: TransitionType.cupertino,
             BlocProvider.value(
               value: postsCubit,
               child: PostsView(),
@@ -51,6 +53,7 @@ class RouterGenerator {
         final post = args['post'] as Post;
 
         return _pageRouter.build(
+          transition: TransitionType.cupertino,
           BlocProvider.value(
             value: postsCubit,
             child: PostDetailsView(post: post),

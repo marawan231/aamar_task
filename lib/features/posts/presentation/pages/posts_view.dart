@@ -85,7 +85,7 @@ class _PostsViewState extends State<PostsView> {
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {
         RouterGenerator.postsCubit.state.maybeWhen(
-          error: (message) => null,
+          error: (message) => _loadMorePosts(),
           orElse: () => _loadMorePosts(),
         );
       }

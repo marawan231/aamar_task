@@ -12,34 +12,36 @@ class PostDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          title: Text('Post Details'),
-        ),
-        body: BlocBuilder<PostsCubit, PostsState>(
-          builder: (context, state) {
-            return Padding(
-              padding: EdgeInsets.all(16.sp),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      _buildId(),
-                      _buildUserId(),
-                    ],
-                  ),
-                  16.verticalSpace,
-                  Hero(
-                      tag: post.id.toString(),
-                      child: PostItem(post: post, isDetails: true)),
-                ],
-              ),
-            );
-          },
-        ));
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            title: Text('Post Details'),
+          ),
+          body: BlocBuilder<PostsCubit, PostsState>(
+            builder: (context, state) {
+              return Padding(
+                padding: EdgeInsets.all(16.sp),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        _buildId(),
+                        _buildUserId(),
+                      ],
+                    ),
+                    16.verticalSpace,
+                    Hero(
+                        tag: post.id.toString(),
+                        child: PostItem(post: post, isDetails: true)),
+                  ],
+                ),
+              );
+            },
+          )),
+    );
   }
 
   _buildUserId() {

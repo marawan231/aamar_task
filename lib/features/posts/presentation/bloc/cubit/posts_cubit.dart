@@ -31,6 +31,11 @@ class PostsCubit extends Cubit<PostsState> {
       );
       result.when(
         success: (posts) async {
+          List<Post> getPosts = await getIt<PostsManager>().getPosts();
+          getPosts.isEmpty
+              ? await getIt<PostsManager>().savePosts(posts)
+              : null;
+
           posts.isEmpty
               ? WidgetsBinding.instance.addPostFrameCallback((_) {
                   showErrorSnackBar(

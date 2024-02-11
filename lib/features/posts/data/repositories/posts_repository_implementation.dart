@@ -43,7 +43,7 @@ class PostRepositoryImplementation extends PostsRepository {
       if ((savedResponse.isEmpty ||
           savedResponse == [] ||
           savedResponse == null ||
-          isLoadingMore)) {
+          isLoadingMore )) {
         pages++;
         isLoadingMore = false;
         return ApiResult.success(response);
